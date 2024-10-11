@@ -13,14 +13,14 @@ const manifest = defineManifest(async () => ({
   name: packageJson.displayName ?? packageJson.name,
   version: `${major}.${minor}.${patch}.${label}`,
   description: packageJson.description,
-  options_page: "src/pages/options/index.html",
-  background: { service_worker: "src/pages/background/index.ts" },
+  options_page: "templates/options.html",
+  background: { service_worker: "src/entries/Background.tsx" },
   action: {
-    default_popup: "src/pages/popup/index.html",
+    default_popup: "templates/popup.html",
     default_icon: "icons/34x34.png",
   },
   chrome_url_overrides: {
-    newtab: "src/pages/newtab/index.html",
+    newtab: "templates/newtab.html",
   },
   icons: {
     "128": "icons/128x128.png",
@@ -28,10 +28,10 @@ const manifest = defineManifest(async () => ({
   content_scripts: [
     {
       matches: ["http://*/*", "https://*/*", "<all_urls>"],
-      js: ["src/pages/content/index.tsx"],
+      js: ["src/index.tsx"],
     },
   ],
-  devtools_page: "src/pages/devtools/index.html",
+  devtools_page: "templates/devtools.html",
   web_accessible_resources: [
     {
       resources: ["assets/js/*.js", "assets/css/*.css", "assets/img/*"],

@@ -12,7 +12,11 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="app-container"></div>
 
-    <script src="./index.tsx" type="module"></script>
+    <script type="module">
+        import {initialize} from "../src/index.tsx";
+
+        initialize("options");
+    </script>
 </body>
 
 </html>
