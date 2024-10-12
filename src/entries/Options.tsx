@@ -1,12 +1,43 @@
 import "@src/styles/index.css";
 import { Switch } from "@suid/material";
-import { createSignal, useContext } from 'solid-js';
+import { createSignal, onCleanup, useContext } from 'solid-js';
 import { SettingsContext } from '..';
 
 export function Options() {
   const [checked, setChecked] = createSignal(false);
   const [settings, setSettings] = useContext(SettingsContext);
   settings()
+
+  // Function to handle keyboard events and update the settings
+  // Function to handle keyboard events and update the settings
+  const handleKeyDown = (event: KeyboardEvent) => {
+    // Create a new KeyboardEvent based on the pressed key
+    const newKeyBind = new KeyboardEvent(event.type, {
+      altKey: event.altKey,
+      ctrlKey: event.ctrlKey,
+      metaKey: event.metaKey,
+      shiftKey: event.shiftKey,
+      key: event.key, // Keep the key as is (no need to uppercase)
+    });
+
+    let oldSettings = settings();
+    oldSettings.manualTriggerKeyBind = newKeyBind; // Update the key bind in settings
+    setSettings(oldSettings); // Apply the updated settings
+  };
+
+  // Adding and removing the keyboard event listener
+  const toggleKeyListener = (isEnabled: boolean) => {
+    if (isEnabled) {
+      window.addEventListener("keydown", handleKeyDown); // Add listener when enabled
+    } else {
+      window.removeEventListener("keydown", handleKeyDown); // Remove listener when disabled
+    }
+  };
+
+  // Clean up the event listener when the component is unmounted
+  onCleanup(() => {
+    window.removeEventListener("keydown", handleKeyDown);
+  });
 
 
   return (
@@ -36,6 +67,7 @@ export function Options() {
       checked={checked()}
       onChange={(event, value) => {
         setChecked(value);
+        
       }}
       inputProps={{ "aria-label": "controlled" }}
     />
