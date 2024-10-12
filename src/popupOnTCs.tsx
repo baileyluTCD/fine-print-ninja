@@ -1,11 +1,9 @@
 import { initialize } from ".";
-import titles from "./assets/data/termsAndConditionsTitles.json";
-import { Entry } from './types/Entry';
+import urlIdents from "./assets/data/termsAndConditionsUrlIdentifiers.json";
+import { Entry } from "./types/Entry";
 
-const pageContent = document.body.innerText.toLowerCase();
+const foundIdents = urlIdents.filter((ident) =>
+  window.location.href.includes(ident)
+);
 
-for (const title of titles) {
-  if (pageContent.includes(title.toLowerCase())) {
-    initialize(Entry.Popup);
-  }
-}
+if (foundIdents.length > 0) initialize(Entry.Popup);
