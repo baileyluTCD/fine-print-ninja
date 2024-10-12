@@ -68,7 +68,7 @@ const handleKeyDown = (event: KeyboardEvent) => {
 
         <div class="mb-6">
           <p class="text-lg font-semibold text-gray-600 mb-2">Current Key Bind Shortcut:</p>
-          <p class="bg-gray-100 p-2 rounded text-gray-800 border border-gray-300">
+          <p class="bg-gray-900 or any other dark color. p-2 rounded text-gray-800 border border-gray-300">
             {settings().manualTriggerKeyBind.altKey ? "ALT + " : ""}
             {settings().manualTriggerKeyBind.ctrlKey ? "CTRL + " : ""}
             {settings().manualTriggerKeyBind.metaKey ? "META / WINDOWS + " : ""}
