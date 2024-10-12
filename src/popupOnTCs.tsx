@@ -1,16 +1,20 @@
 import { initialize } from ".";
-import titles from "./assets/data/termsAndConditionsTitles.json";
 import { Entry } from "./types/Entry";
 
-const pageContent = document.body.innerText.toLowerCase();
+const hostname = window.location.hostname.slice("www.".length);
 
-const foundTitles = titles.filter((title) =>
-  pageContent.includes(title.toLowerCase())
-);
+fetch(
+  `https://raw.githubusercontent.com/supdey/tos-dataset/refs/heads/dataset/${hostname}.txt`
+)
+  .then((response) => response.text())
+  .then((text) => {
+    if (text.includes("404")) {
+      throw new Error("No privacy policy exists on record for this webside");
+    } 
 
-if (foundTitles.length > 0)
-  initialize(Entry.Popup);
-
-let termsElement = document.querySelector(".terms, #terms, .terms-and-conditions");
-
-alert(termsElement.textContent);
+    return text;
+  })
+  .then((text) => {
+    initialize(Entry.Popup);
+  })
+  .catch((err) => console.error(`Error finding privacy policy: ${err}`));
