@@ -22,6 +22,8 @@ export function Options() {
     let oldSettings = settings();
     oldSettings.manualTriggerKeyBind = newKeyBind; // Update the key bind in settings
     setSettings(oldSettings); // Apply the updated settings
+
+    setChecked(false);
   };
 
   // Adding and removing the keyboard event listener
@@ -67,11 +69,11 @@ export function Options() {
       onChange={(event, value) => {
         setChecked(value);
         toggleKeyListener(value); // Enable or disable the key listener based on the switch;
+        
       }}
       inputProps={{ "aria-label": "controlled" }}
-    />
-
       
+    />
     </main>
   );
 }
