@@ -6,9 +6,8 @@ import { SettingsContext } from '..';
 export function Options() {
   const [checked, setChecked] = createSignal(false);
   const [settings, setSettings] = useContext(SettingsContext);
-  settings()
+  //settings()
 
-  // Function to handle keyboard events and update the settings
   // Function to handle keyboard events and update the settings
   const handleKeyDown = (event: KeyboardEvent) => {
     // Create a new KeyboardEvent based on the pressed key
@@ -67,7 +66,7 @@ export function Options() {
       checked={checked()}
       onChange={(event, value) => {
         setChecked(value);
-        
+        toggleKeyListener(value); // Enable or disable the key listener based on the switch;
       }}
       inputProps={{ "aria-label": "controlled" }}
     />
