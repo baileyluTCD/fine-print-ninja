@@ -1,4 +1,5 @@
 import "@src/styles/index.css";
+import { Settings } from '@src/types/Settings';
 import { Switch } from "@suid/material";
 import { createSignal, onCleanup, useContext } from 'solid-js';
 import { SettingsContext } from '..';
@@ -9,22 +10,22 @@ export function Options() {
   //settings()
 
   // Function to handle keyboard events and update the settings
-  const handleKeyDown = (event: KeyboardEvent) => {
-    // Create a new KeyboardEvent based on the pressed key
-    const newKeyBind = new KeyboardEvent(event.type, {
-      altKey: event.altKey,
-      ctrlKey: event.ctrlKey,
-      metaKey: event.metaKey,
-      shiftKey: event.shiftKey,
-      key: event.key, // Keep the key as is (no need to uppercase)
-    });
-
-    let oldSettings = settings();
-    oldSettings.manualTriggerKeyBind = newKeyBind; // Update the key bind in settings
-    setSettings(oldSettings); // Apply the updated settings
-
-    setChecked(false);
+const handleKeyDown = (event: KeyboardEvent) => {
+  // Create a new KeyBind object based on the pressed key
+  const newKeyBind = {
+    altKey: event.altKey,
+    ctrlKey: event.ctrlKey,
+    metaKey: event.metaKey,
+    shiftKey: event.shiftKey,
+    key: event.key.toUpperCase(), // Use uppercase if needed
   };
+
+  // Update settings with the new key binding
+  let oldSettings = settings();
+  oldSettings.manualTriggerKeyBind = newKeyBind; // Update the key bind in settings
+  setSettings(new Settings(oldSettings.autoDetectTermsAndConstitions, newKeyBind)); // Create a new Settings instance
+  setChecked(false); // Unset the second switch after the key binding is set
+};
 
   // Adding and removing the keyboard event listener
   const toggleKeyListener = (isEnabled: boolean) => {
