@@ -1,4 +1,5 @@
 import "@src/styles/index.css";
+import "@src/styles/popup.css";
 import { createSignal, Show } from 'solid-js';
 
 export function Popup() {
@@ -141,91 +142,6 @@ export function Popup() {
 
         </Show>
       </div>
-              
-    <style>
-    {`
-        .terms-input {
-          width: 100%;
-          margin-top: 10px;
-          padding: 8px;
-          font-size: 14px;
-          resize: vertical;
-        }
-        .analyse-button {
-          display: block;
-          margin-top: 16px;
-          padding: 10px;
-          width: 100%;
-          background-color: #4CAF50;
-          color: white;
-          border: none;
-          cursor: pointer;
-          font-size: 16px;
-        }
-        .analyse-button:disabled {
-          background-color: #9e9e9e;
-          cursor: not-allowed;
-        }
-        .loading-indicator {
-          margin-top: 20px;
-          background-color: #f9f9f9;
-          padding: 10px;
-          border-radius: 5px;
-          font-style: italic;
-          color: #555;
-        }
-        .result-container {
-          margin-top: 20px;
-        }
-        .result-item {
-          display: flex;
-          align-items: center;
-          margin-bottom: 10px;
-        }
-        .expand-button {
-          margin-left: 10px;
-          padding: 5px 10px;
-          background-color: #007BFF;
-          color: white;
-          border: none;
-          cursor: pointer;
-          font-size: 14px;
-        }
-        .expand-button:hover {
-          background-color: #0056b3;
-        }
-        .collapse-button {
-          display: block;
-          background-color: #007BFF;
-          color: white;
-          border: none;
-          padding: 5px 10px;
-          cursor: pointer;
-          font-size: 14px;
-          margin-bottom: 10px;
-        }
-        .collapsed-popup {
-          padding: 10px;
-          max-height: 50px;
-          overflow: hidden;
-        }
-        .severity-high {
-          color: red;
-        }
-        .severity-medium {
-          color: orange;
-        }
-        .severity-low {
-          color: green;
-        }
-        .details {
-          font-size: 14px;
-          color: #666;
-          margin-left: 20px;
-          margin-top: 5px;
-        }
-        `}
-    </style>
     </main>
   );
 }
