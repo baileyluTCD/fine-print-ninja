@@ -1,4 +1,4 @@
-/** 
+/**  got rid of this stuff 
 export class Settings {
   autoDetectTermsAndConstitions: boolean;
   manualTriggerKeyBind: KeyboardEvent;
