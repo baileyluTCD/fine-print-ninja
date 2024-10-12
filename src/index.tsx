@@ -1,5 +1,5 @@
 import { App } from "@src/App";
-import { createContext } from "solid-js";
+import { Context, createContext, createSignal, Signal } from "solid-js";
 import { render } from "solid-js/web";
 import { Background } from "./entries/Background";
 import { DevTools } from "./entries/DevTools";
@@ -11,7 +11,19 @@ import { Settings } from "./types/Settings";
 
 export const DEV_MODE: boolean = true;
 
-const SettingsContext = createContext(Settings.default());
+const SettingsContext: Context<Signal<Settings>> = createContext(
+  createSignal(Settings.default())
+);
+
+export function SettingsProvider(props) {
+  const value = createSignal(Settings.default());
+
+  return (
+    <SettingsContext.Provider value={value}>
+      {props.children}
+    </SettingsContext.Provider>
+  );
+}
 
 export function initialize(name: Entry) {
   const root = document.createElement("div");
@@ -22,22 +34,64 @@ export function initialize(name: Entry) {
 
   switch (name) {
     case Entry.Background:
-      render(Background, root);
+      render(
+        () => (
+          <SettingsProvider>
+            <Background />
+          </SettingsProvider>
+        ),
+        root
+      );
       break;
     case Entry.DevTools:
-      render(DevTools, root);
+      render(
+        () => (
+          <SettingsProvider>
+            <DevTools />
+          </SettingsProvider>
+        ),
+        root
+      );
       break;
     case Entry.NewTab:
-      render(NewTab, root);
+      render(
+        () => (
+          <SettingsProvider>
+            <NewTab />
+          </SettingsProvider>
+        ),
+        root
+      );
       break;
     case Entry.Options:
-      render(Options, root);
+      render(
+        () => (
+          <SettingsProvider>
+            <Options />
+          </SettingsProvider>
+        ),
+        root
+      );
       break;
     case Entry.Popup:
-      render(Popup, root);
+      render(
+        () => (
+          <SettingsProvider>
+            <Popup />
+          </SettingsProvider>
+        ),
+        root
+      );
       break;
     default:
-      render(App, root);
+      render(
+        () => (
+          <SettingsProvider>
+            <App />
+          </SettingsProvider>
+        ),
+        root
+      );
       break;
   }
 }
