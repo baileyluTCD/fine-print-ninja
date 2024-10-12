@@ -79,12 +79,11 @@ const handleKeyDown = (event: KeyboardEvent) => {
       checked={checked()}
       onChange={(event, value) => {
         setChecked(value);
-        toggleKeyListener(value); // Enable or disable the key listener based on the switch;
-        
+        toggleKeyListener(value); // Enable or disable the key listener based on the switch; 
       }}
       inputProps={{ "aria-label": "controlled" }}
-      
     />
+    <p>To change the keybind shortcut - toggle the above switch and then press your desired keybind.</p>
     </main>
   );
 }
