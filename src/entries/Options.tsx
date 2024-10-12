@@ -22,12 +22,10 @@ export function Options() {
       />
       <p>Current Key Bind Shortcut:</p>
       <p>{settings().manualTriggerKeyBind.key}</p>
-      {settings().manualTriggerKeyBind.altKey}
-      {settings().manualTriggerKeyBind.ctrlKey}
-      {settings().manualTriggerKeyBind.metaKey}
-      {settings().manualTriggerKeyBind.shiftKey}
-      
-      
+      <p>{settings().manualTriggerKeyBind.altKey.toString()}</p>
+      <p>{settings().manualTriggerKeyBind.ctrlKey}</p>
+      <p>{settings().manualTriggerKeyBind.metaKey}</p>
+      <p>{settings().manualTriggerKeyBind.shiftKey}</p>
       
     </main>
   );
