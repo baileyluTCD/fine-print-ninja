@@ -52,39 +52,47 @@ const handleKeyDown = (event: KeyboardEvent) => {
     window.removeEventListener("keydown", handleKeyDown);
   });
 
+  
 
   return (
-    <main class="flex flex-col items-center justify-center h-screen">
-      <h1 class="text-2xl font-bold mb-12">Fine Print Ninja Options</h1>
-      <p>Enable Autodetection Popup</p>
-      
-      
-      <Switch
-        checked={settings().autoDetectTermsAndConstitions} // Bind switch to the setting
-        onChange={toggleAutoDetect} // Call toggle function on change
-      />
-      
-      <p></p>
-      <p>Current Key Bind Shortcut:</p>
-
-      <p>
-        {settings().manualTriggerKeyBind.altKey ? "ALT + " : ""}
-        {settings().manualTriggerKeyBind.ctrlKey ? " CTRL + " : ""}
-        {settings().manualTriggerKeyBind.metaKey ? "META / WINDOWS / COMMAND + " : ""}
-        {settings().manualTriggerKeyBind.shiftKey ? " SHIFT + " : ""}
-        {settings().manualTriggerKeyBind.key}
-      </p>
-      
-      <Switch
-      checked={checked()}
-      onChange={(event, value) => {
-        setChecked(value);
-        toggleKeyListener(value); // Enable or disable the key listener based on the switch;
+    <main class="flex flex-col items-center justify-center h-screen bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 p-8">
+      <div class="bg-white rounded-lg shadow-lg p-6 max-w-md w-full">
+        <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Fine Print Ninja Options</h1>
         
-      }}
-      inputProps={{ "aria-label": "controlled" }}
-      
-    />
+        <div class="mb-4">
+          <p class="text-lg font-semibold text-gray-600 mb-2">Enable Autodetection Popup</p>
+          <Switch
+            checked={settings().autoDetectTermsAndConstitions}
+            onChange={toggleAutoDetect}
+            color="primary"
+            class="transition-all transform hover:scale-105"
+          />
+        </div>
+
+        <div class="mb-6">
+          <p class="text-lg font-semibold text-gray-600 mb-2">Current Key Bind Shortcut:</p>
+          <p class="bg-gray-100 p-2 rounded text-gray-800 border border-gray-300">
+            {settings().manualTriggerKeyBind.altKey ? "ALT + " : ""}
+            {settings().manualTriggerKeyBind.ctrlKey ? "CTRL + " : ""}
+            {settings().manualTriggerKeyBind.metaKey ? "META / WINDOWS + " : ""}
+            {settings().manualTriggerKeyBind.shiftKey ? "SHIFT + " : ""}
+            {settings().manualTriggerKeyBind.key}
+          </p>
+        </div>
+
+        <div>
+          <p class="text-lg font-semibold text-gray-600 mb-2">Set New Key Bind</p>
+          <Switch
+            checked={checked()}
+            onChange={(event, value) => {
+              setChecked(value);
+              toggleKeyListener(value);
+            }}
+            color="secondary"
+            class="transition-all transform hover:scale-105"
+          />
+        </div>
+      </div>
     </main>
   );
 }
