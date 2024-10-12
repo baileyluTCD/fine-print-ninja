@@ -7,7 +7,7 @@ export function NewTab() {
   return (
     <main>
       count: {count()}
-      <button on:click={() => setCount(count() + 1)}></button>
+      <button on:click={() => setCount(count() + 1)}>Increment</button>
     </main>
   );
 }

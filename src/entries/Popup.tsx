@@ -7,7 +7,9 @@ export function Popup() {
   return (
     <main>
       count: {count()}
-      <button on:click={() => setCount(count() + 1)}></button>
+
+      popup
+      <button on:click={() => setCount(count() + 1)}>button</button>
     </main>
   );
 }
