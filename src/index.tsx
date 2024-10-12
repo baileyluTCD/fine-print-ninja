@@ -11,7 +11,7 @@ import { Settings } from "./types/Settings";
 
 export const DEV_MODE: boolean = true;
 
-const SettingsContext: Context<Signal<Settings>> = createContext(
+export const SettingsContext: Context<Signal<Settings>> = createContext(
   createSignal(Settings.default())
 );
 
