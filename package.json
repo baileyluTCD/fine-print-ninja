@@ -19,6 +19,7 @@
     "type": "module",
     "dependencies": {
         "@suid/material": "^0.18.0",
+        "dotenv": "^16.4.5",
         "octokit": "^4.0.2",
         "solid-js": "^1.6.2"
     },
