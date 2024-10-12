@@ -21,7 +21,7 @@ export function Options() {
         }}
       />
       <p>Current Key Bind Shortcut:</p>
-      settings().manualTriggerKeyBind.key
+      <p>settings().manualTriggerKeyBind.key</p>
       </div>
     </main>
   );
