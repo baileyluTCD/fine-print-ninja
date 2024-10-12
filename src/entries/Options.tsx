@@ -51,49 +51,48 @@ const handleKeyDown = (event: KeyboardEvent) => {
   onCleanup(() => {
     window.removeEventListener("keydown", handleKeyDown);
   });
-  return 
-  (
-    <main class="flex flex-col items-center justify-center h-screen bg-gray-900 p-8">
-    <div class="bg-gray-800 rounded-lg shadow-lg p-6 max-w-md w-full">
-    <h1 class="text-3xl font-bold mb-6 text-center text-white">Fine Print Ninja Options</h1>
-    
-    <div class="mb-4">
-      <p class="text-lg font-semibold text-gray-300 mb-2">Enable Autodetection Popup</p>
-      <Switch
-        checked={settings().autoDetectTermsAndConstitions}
-        onChange={toggleAutoDetect}
-        color="primary"
-        class="transition-all transform hover:scale-105"
-      />
-    </div>
-
-    <div class="mb-6">
-      <p class="text-lg font-semibold text-gray-300 mb-2">Current Key Bind Shortcut:</p>
-      <p class="bg-gray-700 p-2 rounded text-white border border-gray-600">
-        {settings().manualTriggerKeyBind.altKey ? "ALT + " : ""}
-        {settings().manualTriggerKeyBind.ctrlKey ? "CTRL + " : ""}
-        {settings().manualTriggerKeyBind.metaKey ? "META / WINDOWS + " : ""}
-        {settings().manualTriggerKeyBind.shiftKey ? "SHIFT + " : ""}
-        {settings().manualTriggerKeyBind.key}
-      </p>
-    </div>
-
-    <div>
-      <p class="text-lg font-semibold text-gray-300 mb-2">Set New Key Bind</p>
-      <Switch
-        checked={checked()}
-        onChange={(event, value) => {
-          setChecked(value);
-          toggleKeyListener(value);
-        }}
-        color="secondary"
-        class="transition-all transform hover:scale-105"
-      />
-    </div>
-  </div>
-</main>
-
-)
 
   
+
+  return (
+    <main class="flex flex-col items-center justify-center h-screen bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 p-8">
+      <div class="bg-white rounded-lg shadow-lg p-6 max-w-md w-full">
+        <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Fine Print Ninja Options</h1>
+        
+        <div class="mb-4">
+          <p class="text-lg font-semibold text-gray-600 mb-2">Enable Autodetection Popup</p>
+          <Switch
+            checked={settings().autoDetectTermsAndConstitions}
+            onChange={toggleAutoDetect}
+            color="primary"
+            class="transition-all transform hover:scale-105"
+          />
+        </div>
+
+        <div class="mb-6">
+          <p class="text-lg font-semibold text-gray-600 mb-2">Current Key Bind Shortcut:</p>
+          <p class="bg-gray-100 p-2 rounded text-gray-800 border border-gray-300">
+            {settings().manualTriggerKeyBind.altKey ? "ALT + " : ""}
+            {settings().manualTriggerKeyBind.ctrlKey ? "CTRL + " : ""}
+            {settings().manualTriggerKeyBind.metaKey ? "META / WINDOWS + " : ""}
+            {settings().manualTriggerKeyBind.shiftKey ? "SHIFT + " : ""}
+            {settings().manualTriggerKeyBind.key}
+          </p>
+        </div>
+
+        <div>
+          <p class="text-lg font-semibold text-gray-600 mb-2">Set New Key Bind</p>
+          <Switch
+            checked={checked()}
+            onChange={(event, value) => {
+              setChecked(value);
+              toggleKeyListener(value);
+            }}
+            color="secondary"
+            class="transition-all transform hover:scale-105"
+          />
+        </div>
+      </div>
+    </main>
+  );
 }
