@@ -21,8 +21,13 @@ export function Options() {
         }}
       />
       <p>Current Key Bind Shortcut:</p>
-      key = {settings().manualTriggerKeyBind.key}
-      <p>key</p>
+      <p>{settings().manualTriggerKeyBind.key}</p>
+      {settings().manualTriggerKeyBind.altKey}
+      {settings().manualTriggerKeyBind.ctrlKey}
+      {settings().manualTriggerKeyBind.metaKey}
+      {settings().manualTriggerKeyBind.shiftKey}
+      
+      
       
     </main>
   );
