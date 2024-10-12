@@ -1,0 +1,129 @@
+{
+  "Tracking": [
+    "tracking",
+    "cookies",
+    "IP address",
+    "browser fingerprinting",
+    "data mining",
+    "data extraction",
+    "filtering circumvention",
+    "internet usage",
+    "tracking pixels",
+    "identifier synchronization",
+    "deep-link",
+    "page-scrape",
+    "robot",
+    "spider"
+  ],
+  "Data Collection": [
+    "personal data",
+    "data collection",
+    "profiling",
+    "behavioral data",
+    "registration data",
+    "customer data",
+    "inactive account deletion",
+    "accurate data maintenance",
+    "publisher data",
+    "unique IDs",
+    "WHOIS data",
+    "monitor",
+    "look-up"
+  ],
+  "Third-Party Sharing": [
+    "third party",
+    "third-party partners",
+    "advertising partners",
+    "data sharing",
+    "legal disclosure",
+    "third-party content",
+    "third-party promotions",
+    "third-party products/services",
+    "oracle partners",
+    "subprocessors",
+    "ICANN",
+    "registry administrators",
+    "disclose any information",
+    "preserve"
+  ],
+  "Surveillance": [
+    "surveillance",
+    "monitoring",
+    "video recording",
+    "location tracking",
+    "security precautions",
+    "service investigation",
+    "illegal use monitoring",
+    "conduct rules enforcement",
+    "behavioral tracking",
+    "user activity tracking",
+    "monitor"
+  ],
+  "User Consent and Rights": [
+    "waive notice",
+    "acceptance by use",
+    "cease service",
+    "indemnity",
+    "discretionary enforcement",
+    "publisher consent",
+    "end user consent",
+    "data access requests",
+    "opt-out rights",
+    "UDRP agreement",
+    "dispute resolution",
+    "review agreement periodically",
+    "BY USING THE SITE, YOU AGREE TO THESE TERMS OF USE",
+    "demands, loss, liability, claims or expenses",
+    "terminate your access",
+    "WITHOUT PRIOR NOTCE TO YOU"
+  ],
+  "Data Retention": [
+    "data deletion",
+    "180 days inactivity",
+    "no data restoration",
+    "data storage",
+    "global data transfer",
+    "domain registration term",
+    "renewal",
+    "account deletions",
+    "transmittal or communication",
+    "confidentiality"
+  ],
+  "Security Measures": [
+    "reasonable security",
+    "unauthorized access",
+    "server security",
+    "internet risks",
+    "cyber attack prevention",
+    "security incident handling",
+    "account login protection",
+    "password confidentiality"
+  ],
+  "Cookies and Similar Technologies": [
+    "cookies",
+    "pixels",
+    "third-party cookies"
+  ],
+  "Data Transfers and Storage Location": [
+    "global data transfers",
+    "data storage location",
+    "EU standard contractual clauses",
+    "data export",
+    "cross-device identifiers",
+    "linked-Sites"
+  ],
+  "User Profiling and Automated Decision Making": [
+    "behavioral profiling",
+    "automated decision making",
+    "targeted advertising",
+    "user interest profiling"
+  ],
+  "Data Breach Notification": [
+    "data breach",
+    "security incident",
+    "fraud detection",
+    "ad fraud prevention",
+    "malicious activity prevention",
+    "DISCLAIMS ANY AND ALL LIABILITY FOR THE ACTS, OMISSIONS AND CONDUCT OF ANY THIRD PARTIES"
+  ]
+}
