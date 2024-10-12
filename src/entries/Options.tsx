@@ -7,7 +7,7 @@ export function Options() {
 
   return (
     <main class="flex flex-col items-center justify-center h-screen">
-      <h1 class="text-2xl font-bold">Fine Print Ninja Options</h1>
+      <h1 class="text-2xl font-bold mb-12">Fine Print Ninja Options</h1>
       <p>Enable Autodetection Popup</p>
       <Switch
         checked={detectPopup()}
