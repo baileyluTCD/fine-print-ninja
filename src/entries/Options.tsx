@@ -11,7 +11,7 @@ export function Options() {
     <main class="flex flex-col items-center justify-center h-screen">
       <h1 class="text-2xl font-bold mb-12">Fine Print Ninja Options</h1>
       <p>Enable Autodetection Popup</p>
-      <div>
+      
       <Switch
         checked={settings().autoDetectTermsAndConstitions}
         on:change={() => {
@@ -21,9 +21,14 @@ export function Options() {
         }}
       />
       <p>Current Key Bind Shortcut:</p>
-      key = {settings().manualTriggerKeyBind.key}
-      <p>key</p>
-      </div>
+      <p>{settings().manualTriggerKeyBind.key}</p>
+      {settings().manualTriggerKeyBind.altKey}
+      {settings().manualTriggerKeyBind.ctrlKey}
+      {settings().manualTriggerKeyBind.metaKey}
+      {settings().manualTriggerKeyBind.shiftKey}
+      
+      
+      
     </main>
   );
 }

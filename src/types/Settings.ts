@@ -15,7 +15,7 @@ export class Settings {
       altKey: true,
       key: "n",
     };
-
+    
     return new Settings(false, new KeyboardEvent("keypress", event));
   }
 }
