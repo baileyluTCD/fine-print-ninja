@@ -20,21 +20,16 @@ export function Options() {
           setSettings(oldSettings);
         }}
       />
+      <p></p>
       <p>Current Key Bind Shortcut:</p>
 
       <p>
-        {settings().manualTriggerKeyBind.altKey ? "ALT +" : ""}
-        {settings().manualTriggerKeyBind.ctrlKey ? " CTRL +" : ""}
-        {settings().manualTriggerKeyBind.metaKey ? "META / WINDOWS / COMMAND +" : ""}
-        {settings().manualTriggerKeyBind.shiftKey ? " SHIFT +" : ""}
+        {settings().manualTriggerKeyBind.altKey ? "ALT + " : ""}
+        {settings().manualTriggerKeyBind.ctrlKey ? " CTRL + " : ""}
+        {settings().manualTriggerKeyBind.metaKey ? "META / WINDOWS / COMMAND + " : ""}
+        {settings().manualTriggerKeyBind.shiftKey ? " SHIFT + " : ""}
         {settings().manualTriggerKeyBind.key}
       </p>
-      <p>{settings().manualTriggerKeyBind.key}</p>
-    
-      <p>{settings().manualTriggerKeyBind.altKey.toString()}</p>
-      <p>{settings().manualTriggerKeyBind.ctrlKey}</p>
-      <p>{settings().manualTriggerKeyBind.metaKey}</p>
-      <p>{settings().manualTriggerKeyBind.shiftKey}</p>
       
     </main>
   );
