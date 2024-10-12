@@ -1,15 +1,11 @@
 import "@src/styles/index.css";
-import { createSignal } from "solid-js";
 
 export function Popup() {
-  const [count, setCount] = createSignal(0);
-
   return (
-    <main>
-      count: {count()}
-
-      popup
-      <button on:click={() => setCount(count() + 1)}>button</button>
+    <main class="fixed top-10 right-10 z-50">
+      <div class="bg-white border border-black rounded-lg p-10">
+        <p>Found terms and conditions</p>
+      </div>
     </main>
   );
 }

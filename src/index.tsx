@@ -1,13 +1,19 @@
 import { App } from "@src/App";
+import { createContext } from "solid-js";
 import { render } from "solid-js/web";
 import { Background } from "./entries/Background";
 import { DevTools } from "./entries/DevTools";
+import { NewTab } from "./entries/NewTab";
 import { Options } from "./entries/Options";
 import { Popup } from "./entries/Popup";
+import { Entry } from "./types/Entry";
+import { Settings } from "./types/Settings";
 
 export const DEV_MODE: boolean = true;
 
-export function initialize(name: String) {
+const SettingsContext = createContext(Settings.default());
+
+export function initialize(name: Entry) {
   const root = document.createElement("div");
   root.id = "extension-root";
   document.body.append(root);
@@ -15,19 +21,19 @@ export function initialize(name: String) {
   if (DEV_MODE) console.log(`loaded into ${name}`);
 
   switch (name) {
-    case "background":
+    case Entry.Background:
       render(Background, root);
       break;
-    case "devtools":
+    case Entry.DevTools:
       render(DevTools, root);
       break;
-    case "newtab":
-      render(DevTools, root);
+    case Entry.NewTab:
+      render(NewTab, root);
       break;
-    case "options":
+    case Entry.Options:
       render(Options, root);
       break;
-    case "popup":
+    case Entry.Popup:
       render(Popup, root);
       break;
     default:

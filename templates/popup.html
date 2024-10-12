@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <title>Options</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="app-container"></div>
 
     <script type="module">
-        import {initialize} from "../src/index.tsx";
+      import { initialize } from "../src/index.tsx";
+      import { Entry } from "../src/types/Entry.ts";
 
-        initialize("popup");
+      initialize(Entry.Popup);
     </script>
-</body>
-
+  </body>
 </html>
