@@ -1,11 +1,13 @@
 import "@src/styles/index.css";
 import { Switch } from "@suid/material";
-import { useContext } from 'solid-js';
+import { createSignal, useContext } from 'solid-js';
 import { SettingsContext } from '..';
 
 export function Options() {
+  const [checked, setChecked] = createSignal(false);
   const [settings, setSettings] = useContext(SettingsContext);
   settings()
+
 
   return (
     <main class="flex flex-col items-center justify-center h-screen">
@@ -30,6 +32,14 @@ export function Options() {
         {settings().manualTriggerKeyBind.shiftKey ? " SHIFT + " : ""}
         {settings().manualTriggerKeyBind.key}
       </p>
+      <Switch
+      checked={checked()}
+      onChange={(event, value) => {
+        setChecked(value);
+      }}
+      inputProps={{ "aria-label": "controlled" }}
+    />
+
       
     </main>
   );
