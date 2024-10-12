@@ -13,7 +13,19 @@
     "deep-link",
     "page-scrape",
     "robot",
-    "spider"
+    "spider",
+    "You may not use any 'deep-link', 'page-scrape', 'robot', 'spider' or other automatic device, program, algorithm or methodology...",
+    "Internet transmissions are never completely private or secure...",
+    "You may not use data mining, robots, screen scraping, or similar data gathering and extraction tools...",
+    "Britannica may use cookies and other technologies for tracking your interactions...",
+    "CNN may track your internet usage through cookies and other tracking technologies as outlined in their Privacy Policy...",
+    "Rightmove prohibits the use of automated programs such as spiders or web crawlers to access their site...",
+    "Gmail uses cookies and unique identifiers to track user activity across services, such as Google Analytics and Ads...",
+    "device identifiers",
+    "data collection through metrics",
+    "use of cookies for advertising",
+    "IP tracking for location-based content",
+    "YouTube may track your activity across services using cookies, device identifiers, and other tracking technologies as outlined in their Privacy Policy..."
   ],
   "Data Collection": [
     "personal data",
@@ -28,7 +40,20 @@
     "unique IDs",
     "WHOIS data",
     "monitor",
-    "look-up"
+    "look-up",
+    "Apple may disclose any information we have about you (including your identity)...",
+    "Apple’s Privacy Policy applies to use of this Site...",
+    "Britannica collects data through its Services, as outlined in its Privacy Policy...",
+    "User registration information, subscription data, and user-generated content may be collected and stored...",
+    "CNN may collect personal data, including registration and subscription details, as outlined in the Privacy Policy...",
+    "Rightmove collects personal data submitted through inquiry forms, which is processed in accordance with its Privacy Policy...",
+    "Gmail collects personal information such as email addresses, IP addresses, and other data linked to your Google Account...",
+    "email address",
+    "content uploaded to YouTube",
+    "watch history",
+    "search history",
+    "comments and interactions",
+    "YouTube collects personal information, including videos uploaded, watch history, search activity, and interactions with content..."
   ],
   "Third-Party Sharing": [
     "third party",
@@ -44,7 +69,16 @@
     "ICANN",
     "registry administrators",
     "disclose any information",
-    "preserve"
+    "preserve",
+    "This Site may contain links to other independent third-party Web sites...",
+    "Apple may disclose your information when Apple determines that applicable law requires or permits such disclosure...",
+    "Britannica may share your data with third-party service providers, advertisers, or partners as outlined in its Privacy Policy...",
+    "You may not use systems to extract any data from the Services for third-party use...",
+    "CNN may share personal data with third-party advertisers or partners as outlined in its Privacy Policy...",
+    "Rightmove may share your personal data with third-party members such as estate agents and landlords...",
+    "Gmail may share data with third-party service providers and advertisers, especially for targeted advertising and analytics...",
+    "affiliates",
+    "YouTube shares personal data with third-party advertisers, affiliates, and service providers to provide targeted advertising and to comply with legal obligations..."
   ],
   "Surveillance": [
     "surveillance",
@@ -57,7 +91,18 @@
     "conduct rules enforcement",
     "behavioral tracking",
     "user activity tracking",
-    "monitor"
+    "monitor",
+    "Apple reserves the right to monitor all use of its Site and services...",
+    "You agree that Apple may preserve any transmittal or communication by you...",
+    "Britannica reserves the right to monitor, review, or remove user-generated content (UGC) as it deems necessary...",
+    "Britannica may collect data on your usage of its Services, including your IP address, location, and browsing history...",
+    "CNN reserves the right to monitor user interactions and data activity on the Platform, including IP addresses and browsing behavior...",
+    "Rightmove may monitor the use of its site and take action against inappropriate behavior or unauthorized access...",
+    "Gmail may monitor email activity, including IP addresses and usage, to detect unauthorized access and other violations...",
+    "user activity monitoring",
+    "IP monitoring",
+    "content moderation",
+    "YouTube monitors user activity, including IP addresses and interactions, to ensure compliance with community guidelines and to detect unauthorized activities..."
   ],
   "User Consent and Rights": [
     "waive notice",
@@ -75,7 +120,16 @@
     "BY USING THE SITE, YOU AGREE TO THESE TERMS OF USE",
     "demands, loss, liability, claims or expenses",
     "terminate your access",
-    "WITHOUT PRIOR NOTCE TO YOU"
+    "WITHOUT PRIOR NOTCE TO YOU",
+    "BY USING THE SITE, YOU AGREE TO THESE TERMS OF USE...",
+    "You agree to indemnify and hold Apple, its officers, directors, shareholders... harmless from any demands, loss, liability, claims...",
+    "Your use of the Services constitutes agreement to these Terms of Use...",
+    "By posting UGC, you grant Britannica a perpetual, royalty-free license to use, modify, and distribute your content...",
+    "By using CNN’s Platform, you agree to their Terms of Use, including automatic acceptance of future changes...",
+    "By using Rightmove’s site, you agree to the Terms and confirm that you are at least 18 years old...",
+    "By using Gmail, you consent to data collection and processing as outlined in Google's Privacy Policy...",
+    "BY USING THE SERVICE, YOU AGREE TO THESE TERMS OF SERVICE",
+    "YouTube users must agree to the Terms of Service, including consent for data collection and processing. Users can terminate their accounts or request data access as outlined in their policies..."
   ],
   "Data Retention": [
     "data deletion",
@@ -87,7 +141,15 @@
     "renewal",
     "account deletions",
     "transmittal or communication",
-    "confidentiality"
+    "confidentiality",
+    "Apple may preserve any transmittal or communication by you with Apple...",
+    "Apple also may disclose such data if required to do so by law...",
+    "Britannica may retain your data for as long as necessary for operational purposes or as required by law...",
+    "Britannica reserves the right to preserve your communications for legal purposes...",
+    "CNN may retain personal data for operational or legal requirements, as outlined in their Privacy Policy...",
+    "Rightmove may store and retain your personal data as required for their services, in accordance with their Privacy Policy...",
+    "Gmail may store your emails and other data indefinitely, but allows users to delete their account or data upon request...",
+    "YouTube retains personal data and user activity data for operational purposes, but users can delete their data by terminating their accounts or removing content..."
   ],
   "Security Measures": [
     "reasonable security",
@@ -97,12 +159,30 @@
     "cyber attack prevention",
     "security incident handling",
     "account login protection",
-    "password confidentiality"
+    "password confidentiality",
+    "You may not attempt to gain unauthorized access to any portion or feature of the Site...",
+    "You may not probe, scan or test the vulnerability of the Site...",
+    "You are responsible for protecting your account credentials and for complying with security guidelines...",
+    "Britannica uses one-way encryption for password storage...",
+    "CNN has imposed security measures to protect user accounts, including password protection and encryption methods...",
+    "Rightmove prohibits hacking and other security breaches and takes measures to protect user data...",
+    "Gmail uses encryption and other security measures to protect account information and data from unauthorized access...",
+    "encryption",
+    "password protection",
+    "unauthorized access prevention",
+    "YouTube uses encryption and security measures to protect user accounts and data from unauthorized access..."
   ],
   "Cookies and Similar Technologies": [
     "cookies",
     "pixels",
-    "third-party cookies"
+    "third-party cookies",
+    "Britannica uses cookies and tracking technologies as outlined in its Privacy Policy...",
+    "CNN uses cookies, pixels, and tracking technologies as outlined in their Privacy Policy...",
+    "Rightmove uses cookies to enhance user experience and track behavior, as outlined in their Privacy Policy...",
+    "Gmail uses cookies, unique identifiers, and pixel tags to track user activity across its services...",
+    "tracking pixels",
+    "device identifiers",
+    "YouTube uses cookies, tracking pixels, and device identifiers to track user interactions and personalize the user experience as outlined in their Privacy Policy..."
   ],
   "Data Transfers and Storage Location": [
     "global data transfers",
@@ -110,13 +190,27 @@
     "EU standard contractual clauses",
     "data export",
     "cross-device identifiers",
-    "linked-Sites"
+    "linked-Sites",
+    "Although the Site is accessible worldwide, not all features, products or services...",
+    "If you choose to access the Site from outside the United States, you do so on your own initiative...",
+    "Britannica may store and process data in multiple countries as required for operational purposes...",
+    "If you access the Services outside of the U.S., you are responsible for complying with local laws...",
+    "CNN may store personal data across various regions, with data transfers as outlined in the Privacy Policy...",
+    "Rightmove may store and process personal data internationally, as outlined in their Privacy Policy...",
+    "Gmail stores data in various data centers globally to ensure high availability and complies with data transfer laws...",
+    "YouTube stores and processes data globally in compliance with data transfer laws and international regulations..."
   ],
   "User Profiling and Automated Decision Making": [
     "behavioral profiling",
     "automated decision making",
     "targeted advertising",
-    "user interest profiling"
+    "user interest profiling",
+    "No specific mention found related to automated decision making or profiling.",
+    "CNN uses profiling for targeted advertising and personalized content recommendations, as outlined in their Privacy Policy...",
+    "Rightmove uses data for profiling and targeted advertising based on user behavior, as outlined in their Privacy Policy...",
+    "Gmail uses data from user interactions, emails, and search activity to profile users and serve personalized ads...",
+    "automated content recommendations",
+    "YouTube uses behavioral profiling and automated decision making to recommend content and deliver personalized ads based on user interactions and activity..."
   ],
   "Data Breach Notification": [
     "data breach",
@@ -124,6 +218,13 @@
     "fraud detection",
     "ad fraud prevention",
     "malicious activity prevention",
-    "DISCLAIMS ANY AND ALL LIABILITY FOR THE ACTS, OMISSIONS AND CONDUCT OF ANY THIRD PARTIES"
+    "DISCLAIMS ANY AND ALL LIABILITY FOR THE ACTS, OMISSIONS AND CONDUCT OF ANY THIRD PARTIES",
+    "Apple may disclose any information we have about you if we determine...",
+    "Apple’s Privacy Policy applies to use of this Site...",
+    "Britannica reserves the right to disclose information in case of legal requests or breaches.",
+    "CNN may notify users of data breaches or security incidents as required by law or company policy...",
+    "Rightmove may notify users in the event of a data breach, as outlined in their Privacy Policy...",
+    "may disable accounts or take other protective measures as necessary.",
+    "YouTube will notify users in the event of a data breach or security incident and may take actions to protect user accounts from fraud or unauthorized access..."
   ]
 }

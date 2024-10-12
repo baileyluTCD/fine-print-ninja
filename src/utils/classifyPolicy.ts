@@ -7,6 +7,10 @@ const categories = _categories as unknown as Record<Category, string[]>;
 export default async function classifyPolicy(
     policy: string
 ): Promise<Record<Category, string[]>> {
+    if (policy.trim() == "")
+        throw new Error("Please input policy data to start classificiation");
+
+
     const terms: Record<Category, string[]> = {
         [Category.Tracking]: [],
         [Category.DataCollection]: [],

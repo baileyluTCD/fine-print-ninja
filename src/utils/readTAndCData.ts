@@ -1,15 +1,12 @@
-export default async function readTAndCData(): Promise<[String?, Error?]> {
-  const hostname = window.location.hostname.slice("www.".length);
+export default async function readTAndCData(hostname: string): Promise<string> {
+  const strippedHostname = hostname.slice("www.".length);
 
   const response = await fetch(
-    `https://raw.githubusercontent.com/supdey/tos-dataset/refs/heads/dataset/${hostname}.txt`
+    `https://raw.githubusercontent.com/supdey/tos-dataset/refs/heads/dataset/${strippedHostname}.txt`
   );
 
   if (!response.ok || response.status == 404)
-    return [
-      null,
-      new Error("No privacy policy exists on record for this website"),
-    ];
+    throw new Error("No privacy policy exists on record for this website");
 
-  return [await response.text(), null];
+  return await response.text();
 }

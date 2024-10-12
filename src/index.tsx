@@ -77,7 +77,7 @@ export function initialize(name: Entry) {
       render(
         () => (
           <SettingsProvider>
-            <Popup />
+            <Popup/>
           </SettingsProvider>
         ),
         root
