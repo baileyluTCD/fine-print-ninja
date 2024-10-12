@@ -9,6 +9,17 @@ export function Options() {
   const [settings, setSettings] = useContext(SettingsContext);
   //settings()
 
+  // Function to toggle autodetect terms and conditions
+  const toggleAutoDetect = () => {
+  const oldSettings = settings(); // Get current settings
+  const newSettings = new Settings(
+    !oldSettings.autoDetectTermsAndConstitions, // Toggle the autodetect property
+    oldSettings.manualTriggerKeyBind // Keep the existing key binding
+  );
+  setSettings(newSettings); // Update the settings context
+};
+
+
   // Function to handle keyboard events and update the settings
 const handleKeyDown = (event: KeyboardEvent) => {
   // Create a new KeyBind object based on the pressed key
@@ -47,14 +58,12 @@ const handleKeyDown = (event: KeyboardEvent) => {
       <h1 class="text-2xl font-bold mb-12">Fine Print Ninja Options</h1>
       <p>Enable Autodetection Popup</p>
       
+      
       <Switch
-        checked={settings().autoDetectTermsAndConstitions}
-        on:change={() => {
-          let oldSettings = settings();
-          oldSettings.autoDetectTermsAndConstitions = !oldSettings.autoDetectTermsAndConstitions;
-          setSettings(oldSettings);
-        }}
+        checked={settings().autoDetectTermsAndConstitions} // Bind switch to the setting
+        onChange={toggleAutoDetect} // Call toggle function on change
       />
+      
       <p></p>
       <p>Current Key Bind Shortcut:</p>
 
@@ -65,6 +74,7 @@ const handleKeyDown = (event: KeyboardEvent) => {
         {settings().manualTriggerKeyBind.shiftKey ? " SHIFT + " : ""}
         {settings().manualTriggerKeyBind.key}
       </p>
+      
       <Switch
       checked={checked()}
       onChange={(event, value) => {
