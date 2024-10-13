@@ -17,6 +17,8 @@ Team 8's submission for the Trinity Hack Law & AI Contest is a Chrome extension 
 - **TensorFlow**
 - **HTML** 
 - **CSS**
+- **SolidJS**
+- **TailwindCSS**
 - **Other** 
 
 ---
