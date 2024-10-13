@@ -1,4 +1,5 @@
 import SeverityAnalysisResult from "@src/components/popup/ServerityAnalysisResult";
+import SummaryResult from '@src/components/popup/SummaryResult';
 import ToxicityAnalysisResult from "@src/components/popup/ToxicityAnalysisResult";
 import "@src/styles/index.css";
 import "@src/styles/popup.css";
@@ -60,6 +61,7 @@ export function Popup() {
 
           <SeverityAnalysisResult policy={termsToAnalyse} />
           <ToxicityAnalysisResult policy={termsToAnalyse} />
+          <SummaryResult policy={termsToAnalyse} />
 
           {/* Service Comparison URL Input */}
           <div class="comparison-section">

@@ -23,7 +23,8 @@
         "@tensorflow/tfjs": "^4.21.0",
         "dotenv": "^16.4.5",
         "octokit": "^4.0.2",
-        "solid-js": "^1.6.2"
+        "solid-js": "^1.6.2",
+        "text-summarizerly": "^1.0.13"
     },
     "devDependencies": {
         "@crxjs/vite-plugin": "2.0.0-beta.7",
