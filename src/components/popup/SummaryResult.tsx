@@ -12,7 +12,7 @@ export default function ToxicityAnalysisResult(props: {
 
   return (
     <>
-      <h2>Text Summary</h2>
+      <h2>Most Important Text Summary</h2>
       <Switch>
         <Match when={summary.state == "errored"}>
           <p>Error: {summary.error}</p>
@@ -24,8 +24,9 @@ export default function ToxicityAnalysisResult(props: {
           <div>
             {
               <div class="result-container">
-                <h2>Text Summary</h2>
-                <p>{summary()}</p>
+                {summary().map((sentence) => (
+                  <p>{sentence}</p>
+                ))}
               </div>
             }
           </div>
