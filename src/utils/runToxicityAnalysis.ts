@@ -1,4 +1,4 @@
-import toxicity from "@tensorflow-models/toxicity";
+import * as toxicity from "@tensorflow-models/toxicity";
 
 const threshold = 0.9; // Set the minimum prediction confidence
 
