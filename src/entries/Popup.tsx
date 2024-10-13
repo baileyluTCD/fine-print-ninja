@@ -25,9 +25,9 @@ export function Popup() {
   const toggleCollapsed = () => setIsCollapsed(!isCollapsed());
 
   return (
-    <main class="fixed top-10 right-10 z-[1000] bg-transparent h-screen w-1/3">
+    <main class={`fixed top-10 right-10 z-[1000] bg-transparent h-screen ${!isCollapsed() && "w-1/3"}`}>
       <div
-        class={`bg-white border border-black rounded-lg p-10 transition-all ease-in-out overflow-y-scroll h-2/3 shadow ${
+        class={`bg-white border border-black rounded-lg p-10 transition-all ease-in-out overflow-y-scroll h-2/3 shadow-lg ${
           isCollapsed() && "collapsed-popup"
         }`}
       >
@@ -71,7 +71,7 @@ export function Popup() {
             </button>
             {openComparisonData() && (
               <>
-                <p>Comparison Result</p>
+                <h1 class="text-lg font-semibold">Comparison Result</h1>
                 <SeverityAnalysisResult policy={comparisonTerms} />
                 <ToxicityAnalysisResult policy={comparisonTerms} />
                 <SummaryResult policy={comparisonTerms} />
