@@ -12,7 +12,7 @@ export default function ToxicityAnalysisResult(props: {
 
   return (
     <>
-      <h2>Toxicity Analysis</h2>
+      <h2>Toxicity Analysis Descriptors</h2>
       <Switch>
         <Match when={predictions.state == "errored"}>
           <p>Error: {predictions.error}</p>
@@ -24,17 +24,11 @@ export default function ToxicityAnalysisResult(props: {
           <div>
             {
               <div class="result-container">
-                {predictions().map((prediction) => (
-                  <span>
+                {predictions()
+                  .filter((prediction) => prediction.results[0].match)
+                  .map((prediction) => (
                     <h2>{prediction.label}</h2>
-                    {prediction.results.map((result) => (
-                      <span>
-                        <p>Match: {result.match}</p>
-                        <p>{result.probabilities.toString()}</p>
-                      </span>
-                    ))}
-                  </span>
-                ))}
+                  ))}
               </div>
             }
           </div>
