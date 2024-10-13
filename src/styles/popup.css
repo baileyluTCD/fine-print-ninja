@@ -6,10 +6,11 @@ body {
 }
 
 .popup-container {
-  padding: 15px;
-  width: 350px;
-  box-sizing: border-box;
-  background-color: #ffffff;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .popup-title {
@@ -70,11 +71,9 @@ body {
 }
 
 .result-item {
-  margin-bottom: 20px; 
-  padding: 10px;
-  border-radius: 4px;
-  background-color: #fafafa;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .result-header {
@@ -102,7 +101,7 @@ body {
 
 .expand-button {
   padding: 6px 12px;
-  background-color: #17a2b8;
+  background-color: #0056b3;
   color: #ffffff;
   border: none;
   cursor: pointer;
@@ -110,17 +109,32 @@ body {
   border-radius: 4px;
 }
 
-.expand-button:hover {
-  background-color: #117a8b;
+.analyse-button, .compare-button {
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.result-content {
-  margin-top: 10px;
+.collapse-button {
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #0050AD;
+  color: #fff;
+}
+
+.collapse-button:hover, .analyse-button:hover, .compare-button:hover, .expand-button:hover {
+  transform: scale(1.05);
+  background-color: #0056b3;
+}
+
+.expand-button {
+  margin-left: 10px;
+  padding: 5px 10px;
   font-size: 14px;
-  color: #333333;
-  display: none; /* Initially hidden */
-}
-
-.result-content.expanded {
-  display: block;
+  cursor: pointer;
 }

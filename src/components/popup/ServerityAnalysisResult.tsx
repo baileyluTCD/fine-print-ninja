@@ -1,12 +1,6 @@
 import { Category } from "@src/types/Category";
 import classifyPolicy from "@src/utils/classifyPolicy";
-import {
-  Accessor,
-  createEffect,
-  createResource,
-  Match,
-  Switch,
-} from "solid-js";
+import { Accessor, createResource, Match, Switch } from "solid-js";
 import CategoryAndHeadings from "./CategoryAndHeadings";
 
 export default function SeverityAnalysisResult(props: {
@@ -18,35 +12,33 @@ export default function SeverityAnalysisResult(props: {
 
   const [severities] = createResource(props.policy, classifyPolicy);
 
-  createEffect(() => console.log("severities: " + severities()));
-
   return (
-    <>
-      <h2>Severity Analysis</h2>
-      <Switch>
-        <Match when={severities.state == "errored"}>
-          <p>Error: {severities.error}</p>
-        </Match>
-        <Match when={severities.state == "pending"}>
-          <p>Loading...</p>
-        </Match>
-        <Match when={severities.state == "ready"}>
-          <div>
-            {
-              <div class="result-container">
-                {Object.entries(severities())
-                  .filter(([_, headings]) => headings.length > 0)
-                  .map(([category, headings]) => (
-                    <CategoryAndHeadings
-                      category={category as Category}
-                      headings={headings}
-                    />
-                  ))}
-              </div>
-            }
+    <Switch>
+      <Match when={severities.state == "errored"}>
+        <p>Error: {severities.error}</p>
+      </Match>
+      <Match when={severities.state == "pending"}>
+        <p>Loading...</p>
+      </Match>
+      <Match
+        when={
+          severities.state == "ready" && Object.values(severities()).length > 0
+        }
+      >
+        <>
+          <h2>Severity Analysis</h2>
+          <div class="result-container">
+            {Object.entries(severities())
+              .filter(([_, headings]) => headings.length > 0)
+              .map(([category, headings]) => (
+                <CategoryAndHeadings
+                  category={category as Category}
+                  headings={headings}
+                />
+              ))}
           </div>
-        </Match>
-      </Switch>
-    </>
+        </>
+      </Match>
+    </Switch>
   );
 }

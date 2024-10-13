@@ -1,59 +1,48 @@
 import SeverityAnalysisResult from "@src/components/popup/ServerityAnalysisResult";
-import SummaryResult from '@src/components/popup/SummaryResult';
+import SummaryResult from "@src/components/popup/SummaryResult";
 import ToxicityAnalysisResult from "@src/components/popup/ToxicityAnalysisResult";
 import "@src/styles/index.css";
 import "@src/styles/popup.css";
 import readTAndCData from "@src/utils/readTAndCData";
-import { createEffect, createResource, createSignal, Show } from "solid-js";
+import { createResource, createSignal, Show } from "solid-js";
 
 const [terms] = createResource(window.location.hostname, readTAndCData);
 
 export function Popup() {
   const [inputTerms, setInputTerms] = createSignal("");
 
-  const termsToAnalyse = () => (inputTerms().length > 0 ? inputTerms() : terms());
+  const termsToAnalyse = () =>
+    inputTerms().length > 0 ? inputTerms() : terms();
 
-  createEffect(() => console.log("selected terms:" + termsToAnalyse()));
-  
   // signal for comparison url
   const [comparisonURL, setComparisonURL] = createSignal("");
+  const [comparisonTerms] = createResource(comparisonURL, readTAndCData);
+  const [openComparisonData, setOpenComparisonData] = createSignal(false);
 
   // signal to manage collapsed state of popup
   const [isCollapsed, setIsCollapsed] = createSignal(false);
 
   const toggleCollapsed = () => setIsCollapsed(!isCollapsed());
 
-  // func to hanlde comparison
-  const handleCompare = () => {
-    if (comparisonURL().trim() === "") {
-      alert("Please enter a URL of another service for Ts&Cs comparison.");
-      return;
-    }
-    console.log("Comparison initiated with URL:", comparisonURL());
-
-    // CODE TO DETCH SECOND SET OF TSANDCS HERE
-    // API FETCH REQ WRAPPER FUNCTION HERE ...
-  };
-
   return (
-    <main class="fixed top-10 right-10 z-[1000] bg-transparent h-screen">
+    <main class={`fixed top-10 right-10 z-[1000] bg-transparent h-screen ${!isCollapsed() && "w-1/3"}`}>
       <div
-        class={`bg-white border border-black rounded-lg p-10 transition-all ease-in-out overflow-y-scroll h-2/3 shadow ${
+        class={`bg-white border border-black rounded-lg p-10 transition-all ease-in-out overflow-y-scroll h-2/3 shadow-lg ${
           isCollapsed() && "collapsed-popup"
         }`}
       >
-        {/* Collapse Button */}
         <button onClick={toggleCollapsed} class="collapse-button">
           {isCollapsed() ? "Expand" : "Collapse"}
         </button>
 
-        <Show when={!isCollapsed()}>
-          <p>Found T&C's</p>
+        <div class="h-2 w-full my-2"/>
 
-          {/* Input area for manual Ts&Cs*/}
+        <Show when={!isCollapsed()}>
           <textarea
             value={inputTerms()}
-            on:input={(e) => {setInputTerms(e.target.value);}}
+            on:input={(e) => {
+              setInputTerms(e.target.value);
+            }}
             placeholder="Paste Terms and Conditions here..."
             rows={10}
             class="terms-input"
@@ -72,9 +61,22 @@ export function Popup() {
               placeholder="Enter URL to compare Terms & Conditions of..."
               class="comparison-input"
             />
-            <button onClick={handleCompare} class="compare-button">
+            <button
+              onClick={() => {
+                setOpenComparisonData(!openComparisonData());
+              }}
+              class="compare-button"
+            >
               Compare
             </button>
+            {openComparisonData() && (
+              <>
+                <h1 class="text-lg font-semibold">Comparison Result</h1>
+                <SeverityAnalysisResult policy={comparisonTerms} />
+                <ToxicityAnalysisResult policy={comparisonTerms} />
+                <SummaryResult policy={comparisonTerms} />
+              </>
+            )}
           </div>
         </Show>
       </div>
