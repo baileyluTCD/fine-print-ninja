@@ -71,10 +71,10 @@ export function Popup() {
             </button>
             {openComparisonData() && (
               <>
-                <p>Comparison Re</p>
-                <SeverityAnalysisResult policy={termsToAnalyse} />
-                <ToxicityAnalysisResult policy={termsToAnalyse} />
-                <SummaryResult policy={termsToAnalyse} />
+                <p>Comparison Result</p>
+                <SeverityAnalysisResult policy={comparisonTerms} />
+                <ToxicityAnalysisResult policy={comparisonTerms} />
+                <SummaryResult policy={comparisonTerms} />
               </>
             )}
           </div>

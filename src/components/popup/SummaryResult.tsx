@@ -1,5 +1,12 @@
 import summarizePolicy from "@src/utils/summarizePolicy";
-import { Accessor, createResource, Match, Switch } from "solid-js";
+import {
+    Accessor,
+    createResource,
+    createSignal,
+    Match,
+    Show,
+    Switch,
+} from "solid-js";
 
 export default function ToxicityAnalysisResult(props: {
   policy: Accessor<string>;
@@ -20,14 +27,31 @@ export default function ToxicityAnalysisResult(props: {
       </Match>
       <Match when={summary.state == "ready" && summary().length > 0}>
         <>
-          <h2>Most Important Text Summary</h2>
-          <div class="result-container">
-            {summary().map((sentence) => (
-              <p>{sentence}</p>
-            ))}
-          </div>
+          <h2 class="mb-1">Most Important Text Summary</h2>
+          {summary().map((sentence) => (
+            <ExpandableParagraph text={sentence} />
+          ))}
         </>
       </Match>
     </Switch>
   );
+}
+
+export function ExpandableParagraph(props: { text: string }) {
+  const [isOpen, setIsOpen] = createSignal(false);
+
+  return (
+    <button
+      on:click={() => setIsOpen(!isOpen())}
+      class="text-left hover:underline"
+    >
+      <Show when={!isOpen()} fallback={<p>{props.text}</p>}>
+        <p>{toShortenedString(props.text)}</p>
+      </Show>
+    </button>
+  );
+}
+
+function toShortenedString(input: string) {
+  return input.length > 200 ? input.slice(0, 200).trim() + "..." : input;
 }
