@@ -11,18 +11,24 @@ export default function ToxicityAnalysisResult(props: {
   const [predictions] = createResource(props.policy, runToxicityAnalysis);
 
   return (
-    <>
-      <h2>Toxicity Analysis Descriptors</h2>
-      <Switch>
-        <Match when={predictions.state == "errored"}>
-          <p>Error: {predictions.error}</p>
-        </Match>
-        <Match when={predictions.state == "pending"}>
-          <p>Loading...</p>
-        </Match>
-        <Match when={predictions.state == "ready"}>
-          <div>
-            {
+    <Switch>
+      <Match when={predictions.state == "errored"}>
+        <p>Error calculating toxicity analysis descriptors.</p>
+      </Match>
+      <Match when={predictions.state == "pending"}>
+        <p>Loading...</p>
+      </Match>
+      <Match
+        when={
+          predictions.state == "ready" &&
+          predictions().filter((prediction) => prediction.results[0].match)
+            .length > 0
+        }
+      >
+        <div>
+          {
+            <>
+              <h2>Toxicity Analysis Descriptors</h2>
               <div class="result-container">
                 {predictions()
                   .filter((prediction) => prediction.results[0].match)
@@ -30,10 +36,10 @@ export default function ToxicityAnalysisResult(props: {
                     <h2>{prediction.label}</h2>
                   ))}
               </div>
-            }
-          </div>
-        </Match>
-      </Switch>
-    </>
+            </>
+          }
+        </div>
+      </Match>
+    </Switch>
   );
 }

@@ -11,27 +11,23 @@ export default function ToxicityAnalysisResult(props: {
   const [summary] = createResource(props.policy, summarizePolicy);
 
   return (
-    <>
-      <h2>Most Important Text Summary</h2>
-      <Switch>
-        <Match when={summary.state == "errored"}>
-          <p>Error: {summary.error}</p>
-        </Match>
-        <Match when={summary.state == "pending"}>
-          <p>Loading...</p>
-        </Match>
-        <Match when={summary.state == "ready"}>
-          <div>
-            {
-              <div class="result-container">
-                {summary().map((sentence) => (
-                  <p>{sentence}</p>
-                ))}
-              </div>
-            }
+    <Switch>
+      <Match when={summary.state == "errored"}>
+        <p>Error summarising text</p>
+      </Match>
+      <Match when={summary.state == "pending"}>
+        <p>Loading...</p>
+      </Match>
+      <Match when={summary.state == "ready" && summary().length > 0}>
+        <>
+          <h2>Most Important Text Summary</h2>
+          <div class="result-container">
+            {summary().map((sentence) => (
+              <p>{sentence}</p>
+            ))}
           </div>
-        </Match>
-      </Switch>
-    </>
+        </>
+      </Match>
+    </Switch>
   );
 }

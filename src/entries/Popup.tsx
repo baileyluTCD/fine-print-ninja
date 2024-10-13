@@ -4,7 +4,7 @@ import ToxicityAnalysisResult from "@src/components/popup/ToxicityAnalysisResult
 import "@src/styles/index.css";
 import "@src/styles/popup.css";
 import readTAndCData from "@src/utils/readTAndCData";
-import { createEffect, createResource, createSignal, Show } from "solid-js";
+import { createResource, createSignal, Show } from "solid-js";
 
 const [terms] = createResource(window.location.hostname, readTAndCData);
 
@@ -13,8 +13,6 @@ export function Popup() {
 
   const termsToAnalyse = () =>
     inputTerms().length > 0 ? inputTerms() : terms();
-
-  createEffect(() => console.log("selected terms:" + termsToAnalyse()));
 
   // signal for comparison url
   const [comparisonURL, setComparisonURL] = createSignal("");
@@ -33,15 +31,13 @@ export function Popup() {
           isCollapsed() && "collapsed-popup"
         }`}
       >
-        {/* Collapse Button */}
         <button onClick={toggleCollapsed} class="collapse-button">
           {isCollapsed() ? "Expand" : "Collapse"}
         </button>
 
-        <Show when={!isCollapsed()}>
-          <p>Found T&C's</p>
+        <div class="h-2 w-full my-2"/>
 
-          {/* Input area for manual Ts&Cs*/}
+        <Show when={!isCollapsed()}>
           <textarea
             value={inputTerms()}
             on:input={(e) => {
