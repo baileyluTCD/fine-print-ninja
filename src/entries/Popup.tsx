@@ -1,5 +1,5 @@
 import SeverityAnalysisResult from "@src/components/popup/ServerityAnalysisResult";
-import SummaryResult from '@src/components/popup/SummaryResult';
+import SummaryResult from "@src/components/popup/SummaryResult";
 import ToxicityAnalysisResult from "@src/components/popup/ToxicityAnalysisResult";
 import "@src/styles/index.css";
 import "@src/styles/popup.css";
@@ -11,29 +11,20 @@ const [terms] = createResource(window.location.hostname, readTAndCData);
 export function Popup() {
   const [inputTerms, setInputTerms] = createSignal("");
 
-  const termsToAnalyse = () => (inputTerms().length > 0 ? inputTerms() : terms());
+  const termsToAnalyse = () =>
+    inputTerms().length > 0 ? inputTerms() : terms();
 
   createEffect(() => console.log("selected terms:" + termsToAnalyse()));
-  
+
   // signal for comparison url
   const [comparisonURL, setComparisonURL] = createSignal("");
+  const [comparisonTerms] = createResource(comparisonURL, readTAndCData);
+  const [openComparisonData, setOpenComparisonData] = createSignal(false);
 
   // signal to manage collapsed state of popup
   const [isCollapsed, setIsCollapsed] = createSignal(false);
 
   const toggleCollapsed = () => setIsCollapsed(!isCollapsed());
-
-  // func to hanlde comparison
-  const handleCompare = () => {
-    if (comparisonURL().trim() === "") {
-      alert("Please enter a URL of another service for Ts&Cs comparison.");
-      return;
-    }
-    console.log("Comparison initiated with URL:", comparisonURL());
-
-    // CODE TO DETCH SECOND SET OF TSANDCS HERE
-    // API FETCH REQ WRAPPER FUNCTION HERE ...
-  };
 
   return (
     <main class="fixed top-10 right-10 z-[1000] bg-transparent h-screen">
@@ -53,7 +44,9 @@ export function Popup() {
           {/* Input area for manual Ts&Cs*/}
           <textarea
             value={inputTerms()}
-            on:input={(e) => {setInputTerms(e.target.value);}}
+            on:input={(e) => {
+              setInputTerms(e.target.value);
+            }}
             placeholder="Paste Terms and Conditions here..."
             rows={10}
             class="terms-input"
@@ -72,9 +65,22 @@ export function Popup() {
               placeholder="Enter URL to compare Terms & Conditions of..."
               class="comparison-input"
             />
-            <button onClick={handleCompare} class="compare-button">
+            <button
+              onClick={() => {
+                setOpenComparisonData(!openComparisonData());
+              }}
+              class="compare-button"
+            >
               Compare
             </button>
+            {openComparisonData() && (
+              <>
+                <p>Comparison Results for website {comparisonURL()}</p>
+                <SeverityAnalysisResult policy={comparisonTerms} />
+                <ToxicityAnalysisResult policy={comparisonTerms} />
+                <SummaryResult policy={comparisonTerms} />
+              </>
+            )}
           </div>
         </Show>
       </div>
