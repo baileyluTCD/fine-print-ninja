@@ -1,21 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <title>Options</title>
-  </head>
+<html>
+<head>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <h1 class="popup-title">Analysis Tool</h1>
+    <textarea class="terms-input" placeholder="Enter terms here..."></textarea>
+    <button class="analyse-button">Analyse</button>
 
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="app-container"></div>
+    <div class="loading-indicator" style="display: none;">Loading...</div>
 
-    <script type="module">
-      import { initialize } from "../src/index.tsx";
-      import { Entry } from "../src/types/Entry.ts";
+    <div class="result-container">
+      <!-- Example of a result item -->
+      <div class="result-item">
+        <div class="result-header">
+          <div class="severity-label severity-high">High Severity</div>
+          <button class="expand-button">Expand</button>
+        </div>
+        <div class="result-content">
+          <p>Detailed information about the high severity issue.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-      initialize(Entry.Popup);
-    </script>
-  </body>
+  <script>
+    document.querySelectorAll('.expand-button').forEach(function(button) {
+      button.addEventListener('click', function() {
+        const content = this.parentElement.nextElementSibling;
+        content.classList.toggle('expanded');
+        this.textContent = content.classList.contains('expanded') ? 'Collapse' : 'Expand';
+      });
+    });
+  </script>
+</body>
 </html>

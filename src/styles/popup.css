@@ -30,6 +30,7 @@ body {
   border: 1px solid #cccccc;
   border-radius: 4px;
   box-sizing: border-box;
+  margin-bottom: 15px; /* Added spacing */
 }
 
 .analyse-button {
@@ -54,7 +55,6 @@ body {
   cursor: not-allowed;
 }
 
-
 .loading-indicator {
   margin-top: 15px;
   padding: 10px;
@@ -65,37 +65,39 @@ body {
   font-style: italic;
 }
 
-
 .result-container {
   margin-top: 20px;
 }
 
 .result-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px; 
   padding: 10px;
   border-radius: 4px;
   background-color: #fafafa;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
+.result-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+}
+
 .severity-label {
-  flex-grow: 1;
   font-size: 16px;
   font-weight: 500;
 }
 
 .severity-high {
-  color: #dc3545; 
+  color: #dc3545;
 }
 
 .severity-medium {
-  color: #ffc107; 
+  color: #ffc107;
 }
 
 .severity-low {
-  color: #28a745; 
+  color: #28a745;
 }
 
 .expand-button {
@@ -110,4 +112,15 @@ body {
 
 .expand-button:hover {
   background-color: #117a8b;
+}
+
+.result-content {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333333;
+  display: none; /* Initially hidden */
+}
+
+.result-content.expanded {
+  display: block;
 }
